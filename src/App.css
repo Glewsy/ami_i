@@ -1,6 +1,5 @@
 
 
-
 body {
   background-color: rgb(250, 250, 250);
 }
@@ -11,27 +10,29 @@ body {
   justify-content: center;
 }
 
-.pokeapp {
+.poke_card{
   display: flex;
-  flex-direction: column;
-  margin: 20px;
   position: relative;
   justify-content: center;
 }
 
-.poke_container {
+.pokeapp {
   display: flex;
   flex-direction: column;
-  position: relative;
-  align-self: center;
+  margin: 20px;
   max-width: 300px;
+  align-self: center;
+  position: relative;
+}
+
+.poke_container {
   border: 5px solid ;
   border-radius: 5%;
   text-align: center;
   box-shadow: 2px 0 1px #000, -2px 0 1px #000, 0 2px 1px #000, 0 -2px 1px #000, 1px 1px 1px #000, -1px -1px 1px #000 inset, 1px -1px 1px #000 inset, -1px 1px 1px #000 inset;
-  overflow: hidden;
   white-space: nowrap;
   padding-bottom: 5%;
+
 }
 .colortwo{
  display: flex;
@@ -334,7 +335,54 @@ body {
 
 .poke_container{
   background-color: blanchedalmond;
+  animation: rotate 15s  infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  transform-style: preserve-3d;
 }
+.back{
+  box-sizing: border-box;
+  border-radius: 5%;
+  border: 5px solid black;
+  align-self: center;
+  top: 0;
+  background-image: url("./card.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  background-clip: content-box;
+  position: absolute;
+  animation: rotate2 15s infinite alternate ease-in-out;
+  transform-style: preserve-3d;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+ 
+
+@keyframes rotate{
+  0%{
+  transform: perspective(700px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  z-index: 1;
+  }
+
+  100%{
+    transform: perspective(300px)  rotateY(180deg) rotateZ(0deg);
+  }
+}
+
+
+
+@keyframes rotate2{
+  0%{
+  transform: perspective(700px) rotateX(0deg) rotateY(-180deg) rotateZ(0deg);
+  }
+
+  100%{
+    transform: perspective(300px)  rotateY(0deg) rotateZ(0deg);
+  }
+}
+
 
 
 
