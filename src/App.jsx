@@ -2,12 +2,13 @@
 import { Fragment, useEffect, useState } from 'react';
 import './App.css';
 import Card from "./components/card/Card"
+import Search from './components/search/Search';
 
 
 function App() {
 
 
-  const [pokeNumber, setPokeNumber] = useState(1);
+  const [pokeNumber, setPokeNumber] = useState("pikachu");
   const [pokeball, setPokeball] = useState();
 
 
@@ -27,7 +28,7 @@ function App() {
 
 
   return (
-    <Fragment> 
+    <main className='main'> 
       { pokeball? 
         <Card
         pokeball={pokeball}
@@ -36,8 +37,9 @@ function App() {
         />
         : "loading"
       }
-      
-    </Fragment>
+      <Search 
+      setPokeNumber={setPokeNumber}/>
+    </main>
   );
 }
 

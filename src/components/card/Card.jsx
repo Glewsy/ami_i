@@ -36,8 +36,9 @@ const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
                     ${secondColorCard} }
                      `
             }>
+                
                 <div className='pokenumber'>
-                    {` N°${pokeNumber}`}
+                    {` N°${pokeball.id}`}
                 </div>
                 <div className={`colortwo `}>
                     <img className='pokeimg' src={imgsrc} alt="loading" />

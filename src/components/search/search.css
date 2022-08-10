@@ -1,0 +1,28 @@
+
+
+.form_container{
+    display: flex;
+    align-self: center;
+}
+
+.form_input{
+    margin: 0 15px;
+    border: 1px solid rgb(150, 3, 3);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form_button{
+    margin-left: -5px;
+    width: 30px;
+    height: 30px;
+  border-radius: 50%;
+  background-image: url(file:///C:/Users/ami_i/Downloads/pokeball-pokemon-svgrepo-com.svg);
+  align-self: center;
+}
+
+.form_button:hover{
+    transition: all .5s;
+    cursor: pointer;
+    transform: scale(1.4);
+}
