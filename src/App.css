@@ -1,16 +1,14 @@
-
-
 body {
   background-color: rgb(250, 250, 250);
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.poke_card{
+.poke_card {
   display: flex;
   position: relative;
   justify-content: center;
@@ -26,17 +24,19 @@ body {
 }
 
 .poke_container {
-  border: 5px solid ;
+  border: 5px solid;
   border-radius: 5%;
   text-align: center;
   box-shadow: 2px 0 1px #000, -2px 0 1px #000, 0 2px 1px #000, 0 -2px 1px #000, 1px 1px 1px #000, -1px -1px 1px #000 inset, 1px -1px 1px #000 inset, -1px 1px 1px #000 inset;
   white-space: nowrap;
-  padding-bottom: 5%;
+  padding-bottom: 10%;
+  height: 60vh;
 
 }
-.colortwo{
- display: flex;
- flex-direction: column;
+
+.colortwo {
+  display: flex;
+  flex-direction: column;
 }
 
 .pokeinfo-container {
@@ -45,7 +45,7 @@ body {
 
 }
 
-.abilities_container{
+.abilities_container {
   border-top: 1px solid gray;
   padding-top: 10px;
   font-family: monospace;
@@ -62,17 +62,20 @@ body {
   background-image: url(file:///C:/Users/ami_i/Downloads/pokeball-pokemon-svgrepo-com.svg);
   align-self: center;
 }
-.pokebutton_text{
+
+.pokebutton_text {
   margin: 0;
+  margin-bottom: 15px;
   align-self: center;
 }
 
-.pokebutton:hover{
+.pokebutton:hover {
   cursor: pointer;
   opacity: .8;
 }
-.pokebutton:active{
-  box-shadow: 1px 1px 4px #3d3d3d inset,-1px -1px 4px #3d3d3d inset;
+
+.pokebutton:active {
+  box-shadow: 1px 1px 4px #3d3d3d inset, -1px -1px 4px #3d3d3d inset;
   opacity: 1;
 }
 
@@ -88,7 +91,7 @@ body {
 }
 
 .pokenumber {
-  margin: 5px;  
+  margin: 5px;
   font-size: 14px;
   position: absolute;
   right: 5px;
@@ -104,7 +107,8 @@ body {
   padding-bottom: 5px;
 }
 
-.typeone, .typetwo {
+.typeone,
+.typetwo {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -123,7 +127,7 @@ body {
   align-self: center;
 }
 
-.pokedetails{
+.pokedetails {
   position: absolute;
   display: flex;
   bottom: 5px;
@@ -131,13 +135,14 @@ body {
   justify-content: space-around;
 }
 
-.detail1,.detail2{
+.detail1,
+.detail2 {
   margin: 10px;
   font-size: 14px;
 }
 
 
-.pokeevolve{
+.pokeevolve {
   position: absolute;
   margin: 5px;
   font-style: italic;
@@ -151,13 +156,13 @@ body {
 .fire {
   border-color: rgb(172, 11, 11);
   background-color: rgb(172, 11, 11);
-  
+
 }
 
 .water {
   border-color: rgb(25, 73, 145);
   background-color: rgb(25, 73, 145);
-  
+
 
 }
 
@@ -231,7 +236,7 @@ body {
   background-color: dimgrey;
 }
 
-.dark{
+.dark {
   border-color: rgba(32, 32, 32, 0.918);
   background-color: rgba(32, 32, 32, 0.918);
 }
@@ -246,13 +251,13 @@ body {
 .fires {
   border-right-color: rgb(172, 11, 11);
   border-top-color: rgb(172, 11, 11);
-  
+
 }
 
 .waters {
   border-right-color: rgb(25, 73, 145);
   border-top-color: rgb(25, 73, 145);
-  
+
 
 }
 
@@ -325,7 +330,8 @@ body {
   border-top-color: dimgrey;
   border-right-color: dimgrey;
 }
-.darks{
+
+.darks {
   border-right-color: rgba(32, 32, 32, 0.918);
   border-top-color: rgba(32, 32, 32, 0.918);
 }
@@ -333,14 +339,14 @@ body {
 
 
 
-.poke_container{
+.poke_container {
   background-color: blanchedalmond;
-  animation: rotate 15s  infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
   transform-style: preserve-3d;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  z-index: 1;
 }
-.back{
+
+.back {
   box-sizing: border-box;
   border-radius: 5%;
   border: 5px solid black;
@@ -348,43 +354,52 @@ body {
   top: 0;
   background-image: url("./card.jpg");
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-clip: content-box;
   position: absolute;
-  animation: rotate2 15s infinite alternate ease-in-out;
   transform-style: preserve-3d;
   display: flex;
   width: 100%;
   height: 100%;
-}
- 
-
-@keyframes rotate{
-  0%{
-  transform: perspective(700px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  z-index: 1;
-  }
-
-  100%{
-    transform: perspective(300px)  rotateY(180deg) rotateZ(0deg);
-  }
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
 }
 
+.poke_card {
+  background: none;
+}
 
+.backed {
+  animation: rotate2 2s;
+}
 
-@keyframes rotate2{
-  0%{
-  transform: perspective(700px) rotateX(0deg) rotateY(-180deg) rotateZ(0deg);
+.fronted {
+  animation: rotate 2s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(700px) rotateY(0deg);
+    z-index: 2;
   }
 
-  100%{
-    transform: perspective(300px)  rotateY(0deg) rotateZ(0deg);
+
+  100% {
+    transform: rotateY(180deg);
+
   }
 }
 
 
 
+@keyframes rotate2 {
+  0% {
+    transform: perspective(700px) rotateY(-180deg);
+  }
 
 
-
+  100% {
+    z-index: 2;
+    transform:  rotateY(0deg);
+  }
+}

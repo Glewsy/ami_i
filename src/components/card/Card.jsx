@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Search from "../search/Search"
 
 
 const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
@@ -6,6 +7,27 @@ const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
 
     function randompoke() {
         setPokeNumber(Math.floor(Math.random() * 890))
+    }
+
+    function turn(){
+      let back = document.getElementById("back")
+      let front = document.getElementById("front")
+      back.classList.add("backed")
+      front.classList.add(`fronted`)
+      front.classList.replace(pokeball.types[0].type.name,pokeball.types[0].type.name)
+      front.classList.replace(secondColorCard, secondColorCard)
+      setTimeout(() => {
+        back.classList.remove("backed")
+        front.classList.remove("fronted")
+    }, 2000);
+    setTimeout(() => {
+        back.classList.add("fronted")
+        front.classList.add("backed")
+        setTimeout(()=>{
+            back.classList.remove("fronted")
+            front.classList.remove("backed")
+        }, 2000)
+    }, 1900);
     }
 
     const [secondColorCard, setSecondColorCard] = useState()
@@ -21,7 +43,7 @@ const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
                 let colr = await pokeball.types[1].type.name + "s"
                 setSecondColorCard(colr)
             } else {
-                setSecondColorCard("")
+                setSecondColorCard("e")
             }
 
         })();
@@ -30,12 +52,10 @@ const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
 
     return (
         <div className={`pokeapp  `}>
-            <div className="poke_card">
-                <div className={
-                    `poke_container
-                     ${pokeball.types[0].type.name}
-                    ${secondColorCard} }
-                     `}>
+            <div className={`poke_card ` }>
+                <div
+                id='front'
+                className={`poke_container ${pokeball.types[0].type.name} ${secondColorCard}`}>
 
                     <div className='pokenumber'>
                         {` N°${pokeball.id}`}
@@ -68,15 +88,22 @@ const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
                         </div>
                     </div>
                 </div>
-                <div className="back"></div>
+                <div id='back' className="back"></div>
             </div>
-            <button
+            <button type='button'
                 className='pokebutton'
                 onClick={() => {
+                    setTimeout(() => {
                     randompoke()
+                    }, 1500);
+                    turn()
                 }}>
             </button>
-            <h3 className='pokebutton_text'>Touch here for a new Pokemon</h3>
+            <h5 className='pokebutton_text'>Re-roll</h5>
+      <Search 
+      setPokeNumber={setPokeNumber}
+      turn={turn} 
+      />
 
         </div>
     )

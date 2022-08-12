@@ -37,8 +37,6 @@ function App() {
         />
         : "loading"
       }
-      <Search 
-      setPokeNumber={setPokeNumber}/>
     </main>
   );
 }
