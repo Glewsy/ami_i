@@ -18,7 +18,7 @@ const Search = ({ setPokeNumber,turn }) => {
                 name='search'
                 autoComplete='off'
                 id='input'
-                placeholder='Enter a pokemon name or a pokemon number'
+                placeholder='Enter a pokemon name // number'
                 type="text" />
             <button
                 className='form_button'

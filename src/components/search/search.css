@@ -27,3 +27,10 @@
     cursor: pointer;
     transform: scale(1.4);
 }
+
+@media (max-width: 500px) { 
+.form_input{
+    width: 70vw;
+}
+
+ }

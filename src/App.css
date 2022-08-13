@@ -403,3 +403,16 @@ body {
     transform:  rotateY(0deg);
   }
 }
+
+
+
+@media (max-width: 500px) { 
+.poke_container{
+  height: 560px;
+}
+.pokebutton{
+  width: 100px;
+  height: 100px;
+}
+
+ }
