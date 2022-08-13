@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Search from "../search/Search"
 
 
-const Card = ({ pokeNumber, pokeball, setPokeNumber }) => {
+const Card = ({  pokeball, setPokeNumber }) => {
 
 
     function randompoke() {
-        setPokeNumber(Math.floor(Math.random() * 890))
+        setPokeNumber(Math.floor(Math.random() * 898))
     }
 
     function turn(){

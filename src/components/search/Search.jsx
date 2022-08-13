@@ -5,12 +5,16 @@ const Search = ({ setPokeNumber,turn }) => {
         <form
             onSubmit={ev => {
                 ev.preventDefault();
-                if(ev.target.search.value){
+                if(ev.target.search.value > 898){return alert("Te excediste con el numero")}
+                else if(ev.target.search.value < 1) {return alert("El minimo aceptable es 1")}
+                else{
+                if(ev.target.search.value ){
+                  let eve =  ev.target.search.value.toLowerCase()
                     setTimeout(() => {
-                        setPokeNumber(ev.target.search.value)
+                        setPokeNumber(eve)
                         ev.target.search.value = ""
                     }, 1600);
-                } else { alert("Escriba un nombre Correctamente")}
+                } else { alert("Escriba un nombre Correctamente")}}
             }}
             className='form_container' >
             <input
@@ -18,7 +22,7 @@ const Search = ({ setPokeNumber,turn }) => {
                 name='search'
                 autoComplete='off'
                 id='input'
-                placeholder='Enter a pokemon name // number'
+                placeholder='Enter a pokemon name // number(max 898)'
                 type="text" />
             <button
                 className='form_button'

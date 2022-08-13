@@ -1,8 +1,7 @@
 
-import { Fragment, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import './App.css';
 import Card from "./components/card/Card"
-import Search from './components/search/Search';
 
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
       { pokeball? 
         <Card
         pokeball={pokeball}
-        pokeNumber={pokeNumber}
         setPokeNumber={setPokeNumber} 
         />
         : "loading"
