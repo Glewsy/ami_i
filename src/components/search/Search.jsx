@@ -13,7 +13,7 @@ const Search = ({ setPokeNumber,turn }) => {
                     setTimeout(() => {
                         setPokeNumber(eve)
                         ev.target.search.value = ""
-                    }, 1600);
+                    }, 1000);
                 } else { alert("Escriba un nombre Correctamente")}}
             }}
             className='form_container' >
