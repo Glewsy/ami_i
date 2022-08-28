@@ -402,6 +402,19 @@ body {
     height: 100px;
   }
 
+  .pokeimg{
+    min-width: 150px;
+    width: 50%;
+  }
+
+  .poke_container{
+    height: 400px;
+  }
+
+  .ability{
+    margin: 15px 0px;
+  }
+  
 }
 
 

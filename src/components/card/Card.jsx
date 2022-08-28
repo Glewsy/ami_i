@@ -6,8 +6,8 @@ import Turn from "../Turn/Turn"
 
 const Card = ({ pokeball, setPokeNumber }) => {
 
-//la funcion "randompoke" fija un id al azar de algun pokemon
-// the function "randompoke" sets a random id of some pokemon
+    //la funcion "randompoke" fija un id al azar de algun pokemon
+    // the function "randompoke" sets a random id of some pokemon
 
     function randompoke() {
         setPokeNumber(Math.floor(Math.random() * 898))
@@ -44,7 +44,8 @@ const Card = ({ pokeball, setPokeNumber }) => {
                         {` N°${pokeball.id}`}
                     </div>
                     <div className={`colortwo `}>
-                        <img className='pokeimg' src={imgsrc} alt="loading" />
+
+                        <img className='pokeimg' src={imgsrc ? imgsrc : "https://cdn-icons-png.flaticon.com/512/85/85488.png"} alt="Loading" />
 
                         <div className='pokeinfo-container'>
                             <p className="pokename">
@@ -58,10 +59,10 @@ const Card = ({ pokeball, setPokeNumber }) => {
                             <div className='abilities_container'>
                                 Abilities : {pokeball.abilities.length} {
                                     <div className="abilities">
-                                        <p className="ability">{`> ${pokeball.abilities[0].ability.name}`}</p>
-                                        <p className="ability">{pokeball.abilities[1] ? `>> ${pokeball.abilities[1].ability.name}` : ""}</p>
-                                        <p className="ability">{pokeball.abilities[2] ? `>>> ${pokeball.abilities[2].ability.name}` : ""}</p>
-                                        <p className="ability">{pokeball.abilities[3] ? `>>>> ${pokeball.abilities[3].ability.name}` : ""}</p>
+                                        <p className="ability one">{`> ${pokeball.abilities[0].ability.name}`}</p>
+                                        <p className="ability two">{pokeball.abilities[1] ? `>> ${pokeball.abilities[1].ability.name}` : ""}</p>
+                                        <p className="ability three">{pokeball.abilities[2] ? `>>> ${pokeball.abilities[2].ability.name}` : ""}</p>
+                                        <p className="ability four">{pokeball.abilities[3] ? `>>>> ${pokeball.abilities[3].ability.name}` : ""}</p>
                                     </div>}
                             </div>
                             <div className="pokedetails">
@@ -73,7 +74,9 @@ const Card = ({ pokeball, setPokeNumber }) => {
                 </div>
                 <div id='back' className="back"></div>
             </div>
-            <button type='button'
+            <button
+                title='pokebutton'
+                type='button'
                 className='pokebutton'
                 onClick={() => {
                     setTimeout(() => {
@@ -87,11 +90,11 @@ const Card = ({ pokeball, setPokeNumber }) => {
                 setPokeNumber={setPokeNumber}
                 turn={Turn}
             />
-        <div className='nombres'>
-            <Names
-            setPokeNumber={setPokeNumber}
-            turn={Turn}
-            />
+            <div className='nombres'>
+                <Names
+                    setPokeNumber={setPokeNumber}
+                    turn={Turn}
+                />
             </div>
         </div>
     )

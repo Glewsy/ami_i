@@ -35,8 +35,7 @@ const Search = ({ setPokeNumber, turn }) => {
             onSubmit={ev => {
                 ev.preventDefault();
                 if (Number(ev.target.search.value)) {
-                    if (ev.target.search.value > 898 || ev.target.search.value <= 0) 
-                    { return alert("Unacceptable number") }
+                    if (ev.target.search.value > 900 || ev.target.search.value <= 0) { return alert("Unacceptable number") }
                     else if (ev.target.search.value > 0) {
                         let eve = ev.target.search.value
                         turn()
@@ -45,14 +44,14 @@ const Search = ({ setPokeNumber, turn }) => {
                             ev.target.search.value = ""
                         }, 500);
                     }
-                } 
-               else {
-              
+                }
+                else {
+
                     let eve = ev.target.search.value.toLowerCase()
                     if (!namesbrought.includes(eve)) {
                         return alert("Incorrect Name")
-                       
-                    } else { 
+
+                    } else {
 
                         turn()
                         setTimeout(() => {
@@ -60,7 +59,7 @@ const Search = ({ setPokeNumber, turn }) => {
                             ev.target.search.value = ""
                         }, 500);
                     }
-                } 
+                }
 
             }}
             className='form_container' >
@@ -69,9 +68,10 @@ const Search = ({ setPokeNumber, turn }) => {
                 name='search'
                 autoComplete='off'
                 id='input'
-                placeholder='Enter a pokemon name // number(max 898)'
+                placeholder='Enter a pokemon name // number(max 900)'
                 type="text" />
             <button
+                title='search-button'
                 className='form_button'
                 type='submit'
             ></button>

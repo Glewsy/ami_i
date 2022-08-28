@@ -26,7 +26,7 @@ const Names = ({ setPokeNumber, turn }) => {
   }
 
   return (
-    <select name="pokemon" id="selectpokemon" onChange={() => {
+    <select title='names' name="pokemon" id="selectpokemon" onChange={() => {
       turn()
       setTimeout(() => {
         cambia()
