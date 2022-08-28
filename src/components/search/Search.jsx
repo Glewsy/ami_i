@@ -1,20 +1,67 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./search.css"
-const Search = ({ setPokeNumber,turn }) => {
+
+
+const Search = ({ setPokeNumber, turn }) => {
+
+
+
+    let [BringNames, setBringNames] = useState()
+
+
+    let api = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=900";
+
+    useEffect(() => {
+
+        fetch(api)
+            .then((res) => res.json())
+            .then((a) => setBringNames(a.results))
+            .catch((e) => console.log(e));
+    }, [api])
+    let namesbrought = []
+    if (BringNames !== undefined) {
+        BringNames.map((e) => {
+            return namesbrought.push(e.name)
+        })
+    }
+
+
+
+
+
+
     return (
         <form
             onSubmit={ev => {
                 ev.preventDefault();
-                if(ev.target.search.value > 898){return alert("Te excediste con el numero")}
-                else if(ev.target.search.value < 1) {return alert("El minimo aceptable es 1")}
-                else{
-                if(ev.target.search.value ){
-                  let eve =  ev.target.search.value.toLowerCase()
-                    setTimeout(() => {
-                        setPokeNumber(eve)
-                        ev.target.search.value = ""
-                    }, 1000);
-                } else { alert("Escriba un nombre Correctamente")}}
+                if (Number(ev.target.search.value)) {
+                    if (ev.target.search.value > 898 || ev.target.search.value <= 0) 
+                    { return alert("Unacceptable number") }
+                    else if (ev.target.search.value > 0) {
+                        let eve = ev.target.search.value
+                        turn()
+                        setTimeout(() => {
+                            setPokeNumber(eve)
+                            ev.target.search.value = ""
+                        }, 500);
+                    }
+                } 
+               else {
+              
+                    let eve = ev.target.search.value.toLowerCase()
+                    if (!namesbrought.includes(eve)) {
+                        return alert("Incorrect Name")
+                       
+                    } else { 
+
+                        turn()
+                        setTimeout(() => {
+                            setPokeNumber(eve)
+                            ev.target.search.value = ""
+                        }, 500);
+                    }
+                } 
+
             }}
             className='form_container' >
             <input
@@ -27,9 +74,6 @@ const Search = ({ setPokeNumber,turn }) => {
             <button
                 className='form_button'
                 type='submit'
-                onClick={()=>{
-                    turn()
-                }}
             ></button>
         </form>
     )

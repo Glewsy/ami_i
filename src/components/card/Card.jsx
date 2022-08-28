@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import Names from '../Names/Names'
 import Search from "../search/Search"
+import Turn from "../Turn/Turn"
 
 
 const Card = ({ pokeball, setPokeNumber }) => {
 
+//la funcion "randompoke" fija un id al azar de algun pokemon
+// the function "randompoke" sets a random id of some pokemon
 
     function randompoke() {
         setPokeNumber(Math.floor(Math.random() * 898))
-    }
-
-    function turn() {
-        let back = document.getElementById("back")
-        let front = document.getElementById("front")
-        back.classList.add("backed")
-        front.classList.add(`fronted`)
-        front.classList.replace(pokeball.types[0].type.name, pokeball.types[0].type.name)
-        front.classList.replace(secondColorCard, secondColorCard)
-        setTimeout(() => {
-            back.classList.remove("backed")
-            front.classList.remove("fronted")
-        }, 2000);
     }
 
     const [secondColorCard, setSecondColorCard] = useState()
@@ -74,8 +65,8 @@ const Card = ({ pokeball, setPokeNumber }) => {
                                     </div>}
                             </div>
                             <div className="pokedetails">
-                                <div className='detail1'>Height : {pokeball.height} Mts.</div>
-                                <div className='detail2'>Weight : {pokeball.weight} Kg.</div>
+                                <div className='detail1'>Height : {(pokeball.height * 0.3048).toFixed(2)} Mts.</div>
+                                <div className='detail2'>Weight : {(pokeball.weight * 0.453592).toFixed(2)} Kg.</div>
                             </div>
                         </div>
                     </div>
@@ -87,16 +78,21 @@ const Card = ({ pokeball, setPokeNumber }) => {
                 onClick={() => {
                     setTimeout(() => {
                         randompoke()
-                    }, 1000);
-                    turn()
+                    }, 500);
+                    Turn()
                 }}>
             </button>
             <h5 className='pokebutton_text'>Re-roll</h5>
             <Search
                 setPokeNumber={setPokeNumber}
-                turn={turn}
+                turn={Turn}
             />
-
+        <div className='nombres'>
+            <Names
+            setPokeNumber={setPokeNumber}
+            turn={Turn}
+            />
+            </div>
         </div>
     )
 }

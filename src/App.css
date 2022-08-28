@@ -122,7 +122,6 @@ body {
 .pokeimg {
   width: 100%;
   min-width: 250px;
-
   align-self: center;
 }
 
@@ -146,6 +145,17 @@ body {
   margin: 5px;
   font-style: italic;
 }
+
+
+.nombres{
+  position:absolute ;
+  left: -200px;
+}
+
+
+
+
+
 
 .grass {
   border-color: green;
@@ -370,11 +380,16 @@ body {
 }
 
 .backed {
-  animation: backcard linear 2s ;
+  animation-name: backcard  ;
 }
 
 .fronted {
-  animation: rotatecard linear 2s ;
+  animation-name: rotatecard  ;
+}
+
+.fronted, .backed{
+ animation-duration:2s;
+ animation-timing-function:ease-out;
 }
 
 
@@ -399,6 +414,9 @@ body {
 
     z-index: 2;
   }
+  70%{
+    z-index: 1;
+  }
   100% {
 
   }
@@ -409,7 +427,8 @@ body {
 
 @keyframes rotatecard {
   0% {
-  transform:perspective(500px) rotateY(0deg);
+    z-index: 3;
+    transform:perspective(500px) rotateY(0deg);
   }
 
   100% {
