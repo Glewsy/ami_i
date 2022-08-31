@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Names from '../Names/Names'
 import Search from "../search/Search"
 import Turn from "../Turn/Turn"
-
+import "./card.css"
 
 const Card = ({ pokeball, setPokeNumber }) => {
 
@@ -10,7 +10,9 @@ const Card = ({ pokeball, setPokeNumber }) => {
     // the function "randompoke" sets a random id of some pokemon
 
     function randompoke() {
-        setPokeNumber(Math.floor(Math.random() * 898))
+        setTimeout(() => {
+        setPokeNumber(Math.floor(Math.random() * 900))
+        }, 400);
     }
 
     const [secondColorCard, setSecondColorCard] = useState()
@@ -79,9 +81,7 @@ const Card = ({ pokeball, setPokeNumber }) => {
                 type='button'
                 className='pokebutton'
                 onClick={() => {
-                    setTimeout(() => {
-                        randompoke()
-                    }, 500);
+                    randompoke()
                     Turn()
                 }}>
             </button>

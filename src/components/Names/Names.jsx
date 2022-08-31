@@ -1,40 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
+import Api from '../api'
 const Names = ({ setPokeNumber, turn }) => {
 
 
-  let [BringNames, setBringNames] = useState()
-
-
-  let api = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=900";
-
-  useEffect(() => {
-
-    fetch(api)
-      .then((res) => res.json())
-      .then((a) => setBringNames(a.results))
-      .catch((e) => console.log(e));
-  }, [api])
+  let [BringNames, setBringNames] = useState()  
   let namesbrought = []
   if (BringNames !== undefined) {
-    BringNames.map((e) => {
-      return namesbrought.push(e.name)
-    })
+    BringNames.map((e) => namesbrought.push(e.name))
   }
+
+
+  
+
   let selection = document.getElementById("selectpokemon")
-  function cambia() {
+  function Change(selection) {
+    setTimeout(() => {
     setPokeNumber(selection.value)
+    }, 400);
   }
 
   return (
     <select title='names' name="pokemon" id="selectpokemon" onChange={() => {
       turn()
-      setTimeout(() => {
-        cambia()
-      }, 400);
+      Change(selection)      
     }
     }>
 
       {namesbrought.map((e) => <option key={e} value={e}>{e = e[0].toUpperCase() + e.substring(1)}</option>)}
+      <Api
+      setBringNames={setBringNames}
+      />
     </select>
   )
 }

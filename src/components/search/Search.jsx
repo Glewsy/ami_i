@@ -1,30 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import "./search.css"
-
+import Api from '../api'
 
 const Search = ({ setPokeNumber, turn }) => {
 
-
-
     let [BringNames, setBringNames] = useState()
-
-
-    let api = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=900";
-
-    useEffect(() => {
-
-        fetch(api)
-            .then((res) => res.json())
-            .then((a) => setBringNames(a.results))
-            .catch((e) => console.log(e));
-    }, [api])
     let namesbrought = []
     if (BringNames !== undefined) {
-        BringNames.map((e) => {
-            return namesbrought.push(e.name)
-        })
+        BringNames.map((e) => namesbrought.push(e.name))
     }
 
+
+    function Change(selection) {
+        setTimeout(() => {
+            setPokeNumber(selection)
+        }, 400);
+    }
 
 
 
@@ -32,6 +23,7 @@ const Search = ({ setPokeNumber, turn }) => {
 
     return (
         <form
+            className='form_container'
             onSubmit={ev => {
                 ev.preventDefault();
                 if (Number(ev.target.search.value)) {
@@ -39,10 +31,8 @@ const Search = ({ setPokeNumber, turn }) => {
                     else if (ev.target.search.value > 0) {
                         let eve = ev.target.search.value
                         turn()
-                        setTimeout(() => {
-                            setPokeNumber(eve)
-                            ev.target.search.value = ""
-                        }, 500);
+                        Change(eve)
+                        ev.target.search.value = ""
                     }
                 }
                 else {
@@ -52,17 +42,13 @@ const Search = ({ setPokeNumber, turn }) => {
                         return alert("Incorrect Name")
 
                     } else {
-
                         turn()
-                        setTimeout(() => {
-                            setPokeNumber(eve)
-                            ev.target.search.value = ""
-                        }, 500);
+                        Change(eve)
+                        ev.target.search.value = ""
                     }
                 }
 
-            }}
-            className='form_container' >
+            }}>
             <input
                 className='form_input'
                 name='search'
@@ -75,6 +61,9 @@ const Search = ({ setPokeNumber, turn }) => {
                 className='form_button'
                 type='submit'
             ></button>
+            <Api
+                setBringNames={setBringNames}
+            />
         </form>
     )
 }
