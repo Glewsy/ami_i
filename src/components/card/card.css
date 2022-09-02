@@ -55,6 +55,9 @@
   }
   
   .pokebutton_text {
+    border-radius: 5px;
+    background-color: white;
+    padding: 3px;
     margin: 0;
     margin-bottom: 15px;
     align-self: center;
@@ -132,7 +135,7 @@
   
 
 
-  .nombres{
+  .pokenames{
     position:absolute ;
     left: -200px;
   }
@@ -374,7 +377,7 @@
   
   .fronted, .backed{
    animation-duration:2s;
-   animation-timing-function:ease-out;
+   animation-timing-function:linear;
   }
   
   
@@ -399,10 +402,19 @@
     .ability{
       margin: 15px 0px;
     }
+
+    .pokenames{
+      position: relative;
+      left: auto;
+      margin: 0 auto;
+    }
+    .form_container{
+      margin-bottom: 20px;
+    }
     
   }
   
-  
+  /*  "backard" makes the card get a back figure for a short time */
   
   @keyframes backcard {
     0% {
@@ -410,10 +422,7 @@
   
     50%{
   
-      z-index: 2;
-    }
-    70%{
-      z-index: 1;
+      z-index: 3;
     }
     100% {
   
@@ -425,12 +434,11 @@
   
   @keyframes rotatecard {
     0% {
-      z-index: 3;
-      transform:perspective(500px) rotateY(0deg);
+      transform:perspective(700px) rotateY(0deg);
     }
   
     100% {
   
-      transform:perspective(600px) rotateY(360deg);
+      transform:perspective(700px) rotateY(360deg);
     }
   }  

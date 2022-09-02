@@ -35,6 +35,7 @@ function App() {
         />
         : "loading"
       }
+      <footer>Amilcar Copyright &copy;</footer>
     </main>
   );
 }

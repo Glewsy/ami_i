@@ -10,7 +10,7 @@ const Api = ({setBringNames}) => {
             .then((res) => res.json())
             .then((a) => setBringNames(a.results))
             .catch((e) => console.log(e));
-    }, )
+    },[api, setBringNames] )
   return (
     <></>
   )

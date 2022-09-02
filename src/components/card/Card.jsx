@@ -90,7 +90,7 @@ const Card = ({ pokeball, setPokeNumber }) => {
                 setPokeNumber={setPokeNumber}
                 turn={Turn}
             />
-            <div className='nombres'>
+            <div className='pokenames'>
                 <Names
                     setPokeNumber={setPokeNumber}
                     turn={Turn}
